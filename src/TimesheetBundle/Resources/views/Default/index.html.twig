@@ -1,0 +1,51 @@
+<style>
+    td{
+        padding: 0rem 10px;
+    }
+</style>
+<div id="t">
+<table class="table" style="font-size:10px;">
+              <thead class="thead-dark">
+                <tr>
+                    <th scope="col">Name</th>
+                    <th scope="col">Month</th>
+                    <th scope="col">Year</th>
+                    <th scope="col">Jours Ouvres</th>
+                    <th scope="col">Jours Cp</th>
+                    <th scope="col">Jours Internes</th>
+                    <th scope="col">Jours Prod</th>
+                </tr>
+              </thead>
+              <tbody>
+                {% for t in timesheet %}
+                <tr>
+                    <td>{{ t.name }}</td>
+                    <td>{{ t.month }}</td>
+                    <td>{{ t.year }}</td>
+                    <td>{{ t.joursOuvres }}</td>
+                    <td>{{ t.joursCp }}</td>
+                    <td>{{ t.joursInterne }}</td>
+                    <td>{{ t.joursProd }}</td>
+                </tr>
+                {% endfor %}
+              </tbody>
+            </table>
+</div>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.5.3/jspdf.debug.js" integrity="sha384-NaWTHo/8YCBYJ59830LTz/P4aQZK1sS0SneOgAvhsIl3zBu8r9RevNg5lHCHAuQ/" crossorigin="anonymous"></script>
+
+<script>
+
+
+var pdf = new jsPDF()
+pdf.setFont("helvetica");
+pdf.setFontType("bold");
+pdf.setFontSize(9);
+pdf.fromHTML(document.getElementById('t'), 10, 10, {
+      width: 170
+   }, function() {
+      pdf.save('sample-file.pdf');
+   });
+
+</script>

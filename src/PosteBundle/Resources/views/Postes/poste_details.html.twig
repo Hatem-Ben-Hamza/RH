@@ -1,0 +1,16 @@
+
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1 class="my-4">Details
+    </h1>
+    <div class="row">
+        <div class="col-12">
+            <ul class="list-group">
+              <li class="list-group-item"><strong>poste:</strong> {{ poste.poste }}</li>
+              <li class="list-group-item"><strong>critere:</strong> {{ poste.critere }}</li>
+              <li class="list-group-item"><strong>minexp:</strong> {{ poste.minexp }}</li>
+            </ul>
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,71 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+<h1> Export Timesheet By</h1>
+<div class="col-auto my-1">
+      <label class="mr-sm-2" for="inlineFormCustomSelect">Salarie</label>
+      <form id="form1" action="{{ path('timesheetsExport') }}" method="post">
+      <select id="filter1" name="filterByName" class="custom-select mr-sm-2" id="inlineFormCustomSelect">
+        <option selected diabled>Choose...</option>
+        {% for salarie in salaries %}
+            <option  value="{{ salarie.name }}">{{ salarie.name }}</option>
+        {% endfor %} 
+      </select>
+      </form>
+    </div>
+
+    <div class="col-auto my-1">
+      <label class="mr-sm-2" for="inlineFormCustomSelect">Month</label>
+      <form id="form2" action="{{ path('timesheetsExport') }}" method="post">
+      <select id="filter2" name="filterByMonth" class="custom-select mr-sm-2" id="inlineFormCustomSelect">
+        <option selected diabled>Choose...</option>
+        <option  value="1">1</option>
+        <option  value="2">2</option>
+        <option  value="3">3</option>
+        <option  value="4">4</option>
+        <option  value="5">5</option>
+        <option  value="6">6</option>
+        <option  value="7">7</option>
+        <option  value="8">8</option>
+        <option  value="9">9</option>
+        <option  value="10">10</option>
+        <option  value="11">11</option>
+        <option  value="12">12</option>
+      </select>
+      </form>
+    </div>
+
+
+{% if timesheet|length != 0 %}
+<div id="t2">
+<h1>Timesheet</h1>
+    <table class="table" style="font-size:10px;">
+              <thead class="thead-dark">
+                <tr>
+                    <th scope="col">Name</th>
+                    <th scope="col">Month</th>
+                    <th scope="col">Year</th>
+                    <th scope="col">Jours Ouvres</th>
+                    <th scope="col">Jours Cp</th>
+                    <th scope="col">Jours Internes</th>
+                    <th scope="col">Jours Prod</th>
+                </tr>
+              </thead>
+              <tbody>
+                {% for t in timesheet %}
+                <tr>
+                    <td>{{ t.name }}</td>
+                    <td>{{ t.month }}</td>
+                    <td>{{ t.year }}</td>
+                    <td>{{ t.joursOuvres }}</td>
+                    <td>{{ t.joursCp }}</td>
+                     <td>{{ t.joursInterne }}</td>
+                    <td>{{ t.joursProd }}</td>
+                </tr>
+                {% endfor %}
+              </tbody>
+            </table>
+</div>
+{% endif %}
+{% endblock %}

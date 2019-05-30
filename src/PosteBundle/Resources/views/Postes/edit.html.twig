@@ -1,0 +1,29 @@
+
+
+
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1 class="my-4">New Poste 
+    </h1>
+    <div class="row">
+        <div class="col-12">
+            {{ form_start(form) }}
+
+<div class="form-group">
+<div class="form-control">{{ form_row(form.poste) }}</div>
+</div>
+<div class="form-group">
+<div class="form-control">{{ form_row(form.critere) }}</div>
+</div>
+<div class="form-group">
+<div class="form-control">{{ form_row(form.minexp) }}</div>
+</div>
+<div class="form-group">
+<input type="submit" class="btn btn-success" style="    margin-left: 2rem;
+">
+</div>
+{{ form_end(form) }}
+        </div>
+    </div>
+{% endblock %}

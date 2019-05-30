@@ -1,0 +1,33 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <a href="/timesheetsExport" class="float-right btn btn-outline-primary btn-sm">Timesheets</a>
+
+<h1 class="my-4">
+        <small>Salarie List</small>
+</h1>
+
+    <table class="table">
+              <thead class="thead-dark">
+                <tr>
+                    <th scope="col">Name</th>
+                    <th scope="col">Type</th>
+                    <th scope="col">Status</th>
+                    <th scope="col">Job Title</th>
+                    <th></th>
+                </tr>
+              </thead>
+              <tbody>
+                {% for salarie in salaries %}
+                <tr>
+                    <td>{{ salarie.gender }} {{ salarie.name }}</td>
+                    <td>{{ salarie.type }}</td>
+                    <td>{{ salarie.status }}</td>
+                    <td>{{ salarie.jobTitle }}</td>
+                    <td><a href="/salaries/details/{{ salarie.id }}"><button type="button" class="btn btn-outline-primary btn-sm">View</button></a></td>
+                </tr>
+                {% endfor %}
+              </tbody>
+            </table>
+
+{% endblock %}

@@ -1,0 +1,47 @@
+
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1 class="my-4">
+        <small>poste List</small>
+    </h1>
+    {% for flashMessage in app.session.flashbag.get('success') %}
+          <div class="alert alert-success">{{ flashMessage }}</div>
+    {% endfor %}
+    <div class="row">
+        <div class="col-12" style="overflow-x: scroll">
+            {% if postes|length != 0 %}
+            <table class="table">
+              <thead class="thead-dark">
+                <tr>
+                    <th scope="col">Poste</th>
+                    <th scope="col">Critére</th>
+                    <th scope="col">Min Exp</th>
+                    <th scope="col">View</th>
+                    <th scope="col">Edit</th>
+                    <th scope="col">Delete</th>
+                </tr>
+              </thead>
+              <tbody>
+                {% for poste in postes %}
+                <tr>
+                    <td>{{ poste.poste }}</td>
+                    <td>{{ poste.critere }}</td>
+                    <td>{{ poste.minexp }}</td>
+                    <td><a href="/postes/details/{{ poste.id }}"><button type="button" class="btn btn-outline-primary btn-sm">View</button></a></td>
+                    <td><a href="/postes/edit/{{ poste.id }}"><button type="button" class="btn btn-outline-secondary btn-sm">Edit</button></a></td>
+                    <td><a href="/postes/delete/{{ poste.id }}"><button type="button" class="btn btn-outline-danger btn-sm">Delete</button></a></td>
+                </tr>
+                {% endfor %}
+              </tbody>
+            </table>
+        </div>
+    {% else %}
+    <div class="col-12">
+        <div class="alert alert-warning" role="alert">
+            There is no poste, yet. But if you want, you can add from <a class="badge badge-info" href="#"><strong>here.</strong></a>
+        </div>
+    </div>
+    {% endif %}
+    </div>
+{% endblock %}

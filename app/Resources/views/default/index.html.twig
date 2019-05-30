@@ -1,0 +1,36 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+  <div class="row" style="padding: 4rem 0;">
+  <div class="col-md-4">
+   <div class="card text-white bg-success mb-3" style="max-width: 18rem;">
+  <div class="card-header">Gerer poste</div>
+  <div class="card-body">
+    <h5 class="card-title">Gestion des postes</h5>
+    <p class="card-text">Ajouter,modifier,supprimer ou visualiser un poste</p>
+    <a href="/postes" class="btn btn-secondary" style="display: block;">Accéder</a>
+  </div>
+</div>
+</div>
+ <div class="col-md-4">
+    <div class="card text-white bg-info mb-3" style="max-width: 18rem;">
+  <div class="card-header">Gerer Candidat</div>
+  <div class="card-body">
+    <h5 class="card-title">Gestion des profils des candidats</h5>
+    <p class="card-text">Recherche filtré ,contact et calcule du score d'un candidat</p>
+    <a href="/candidats" class="btn btn-secondary" style="display: block;">Accéder</a>
+  </div>
+</div>
+</div>
+ <div class="col-md-4">
+    <div class="card text-white bg-dark mb-3" style="max-width: 18rem;">
+  <div class="card-header">Gerer Travail</div>
+  <div class="card-body">
+    <h5 class="card-title">Gestion des timesheets</h5>
+    <p class="card-text">visualisation des timesheets hebodomadaires et voir les performances de l'entreprise</p>
+    <a href="/salaries" class="btn btn-secondary" style="display: block;">Accéder</a>
+  </div>
+</div>
+</div>
+  </div>
+{% endblock %}

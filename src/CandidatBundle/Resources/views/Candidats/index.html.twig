@@ -1,0 +1,48 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+<h1 class="my-4">
+        <small>Candidat Search</small>
+</h1>
+
+
+<div class="col-auto my-1">
+      <label class="mr-sm-2" for="inlineFormCustomSelect">Poste</label>
+      <form id="form" action="{{ path('candidatsSearchResult') }}" method="post">
+      <select id="filter" name="filterValue" class="custom-select mr-sm-2" id="inlineFormCustomSelect">
+        <option selected diabled>Choose...</option>
+        {% for poste in postes %}
+        <option  value="{{ poste.poste }}">{{ poste.poste }}</option>
+        {% endfor %}
+      </select>
+      </form>
+    </div>
+<br>
+{% if candidats|length != 0 %}
+    <table class="table">
+              <thead class="thead-dark">
+                <tr>
+                    <th scope="col">Name</th>
+                    <th scope="col">Position</th>
+                    <th scope="col">Localisation</th>
+                    <th scope="col">Email</th>
+                    <th scope="col">Url</th>
+                    <th></th>
+                </tr>
+              </thead>
+              <tbody>
+                {% for candidat in candidats %}
+                <tr>
+                    <td>{{ candidat.nom }} {{ candidat.prenom }}</td>
+                    <td>{{ candidat.position }}</td>
+                    <td>{{ candidat.localisation }}</td>
+                    <td>{{ candidat.email }}</td>
+                    <td><a href="{{ candidat.url }}" target="_blank">Link</td>
+                    <td><a href="/candidats/details/{{ candidat.id }}"><button type="button" class="btn btn-outline-primary btn-sm">View</button></a></td>
+                </tr>
+                {% endfor %}
+              </tbody>
+            </table>
+{% endif %}
+
+{% endblock %}

@@ -1,0 +1,47 @@
+
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1 class="my-4">Details
+    </h1>
+    <div style="float: right;
+    position: absolute;
+    top: 9rem;
+    right: 13rem;">
+    <a href="/sendEmail/{{ candidat.id }}"><button type="button" class="btn btn-outline-primary btn-sm">Send Email</button></a>
+    <button type="button" class="btn btn-outline-secondary btn-sm" data-toggle="modal" data-target="#exampleModal">
+  Get Candidat Score
+</button>
+    </div>
+    <div class="row">
+        <div class="col-12">
+            <ul class="list-group">
+              <li class="list-group-item"><strong>Name:</strong> {{ candidat.nom }} {{ candidat.prenom }}</li>
+              <li class="list-group-item"><strong>Position:</strong> {{ candidat.position }}</li>
+              <li class="list-group-item"><strong>Localisation:</strong> {{ candidat.localisation }}</li>
+              <li class="list-group-item"><strong>Email:</strong> {{ candidat.email }}</li>
+              <li class="list-group-item"><strong>Profile link:</strong> <a href={{ candidat.url }} target="_blank">Visit</a></li>
+            </ul>
+        </div>
+    </div>
+
+
+    <!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        Candidat Score : {{ score }}
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

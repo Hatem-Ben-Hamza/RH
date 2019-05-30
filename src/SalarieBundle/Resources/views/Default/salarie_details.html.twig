@@ -1,0 +1,29 @@
+
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1 class="my-4">Details
+    </h1>
+    <div style="float: right;
+    position: absolute;
+    top: 9rem;
+    right: 13rem;">
+    </div>
+    <div class="row">
+        <div class="col-12">
+            <ul class="list-group">
+               {% for key, s in salarie %}
+               {% set foo = key|split('/') %}
+               {% set var = foo[0]|length %}
+               {% set var2 = foo|slice(0,1) %}
+                {% if not(isDateTime(s)) %}
+                <li class="list-group-item"><strong>{{ var2[0]|slice(30,var2[0]|length)|capitalize }}: </strong>
+                {{ s }}</li>
+                {% else %}
+                <li class="list-group-item"><strong>{{ var2[0]|slice(30,var2[0]|length)|capitalize }}: </strong>{{ s|date('d-m-y') }}</li>
+                {% endif %}
+            {% endfor %}
+            </ul>
+        </div>
+    </div>
+{% endblock %}

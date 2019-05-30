@@ -1,0 +1,25 @@
+timesheet:
+    resource: "@TimesheetBundle/Controller/"
+    type:     annotation
+    prefix:   /
+
+salarie:
+    resource: "@SalarieBundle/Controller/"
+    type:     annotation
+    prefix:   /
+
+candidat:
+    resource: "@CandidatBundle/Controller/"
+    type:     annotation
+    prefix:   /
+
+poste:
+    resource: "@PosteBundle/Controller/"
+    type:     annotation
+    prefix:   /
+
+app:
+    resource: '@AppBundle/Controller/'
+    type: annotation
+fos_user:
+    resource: "@FOSUserBundle/Resources/config/routing/all.xml"
